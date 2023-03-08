@@ -25,21 +25,28 @@ const elencoLibri = [
 ];
 
 let libroInserito = 'Da'; // Stringa inserita dall'utente per cercare un libro
-let counter = 0;
 
-const libriTrovati = [];
-
-elencoLibri.forEach(trovaLibri);
+const libriTrovati = elencoLibri.filter(trovaLibri); // restituisce un nuovo array contenente gli elementi che rispettano la condizione specificata nella funzione
 
 function trovaLibri(libro) {
-  if (
-    (libro['autore'] + ' ' + libro['titolo'])
-      .toLowerCase()
-      .includes(libroInserito.toLowerCase())
-  ) {
-    libriTrovati.push(libro);
-  }
+  return (libro['autore'] + ' ' + libro['titolo'])
+    .toLowerCase()
+    .includes(libroInserito.toLowerCase());
 }
+
+// METODO ALTERNATIVO CON FOREACH
+// const libriTrovati = [];
+// elencoLibri.forEach(trovaLibri);
+
+// function trovaLibri(libro) {
+//   if (
+//     (libro['autore'] + ' ' + libro['titolo'])
+//       .toLowerCase()
+//       .includes(libroInserito.toLowerCase())
+//   ) {
+//     libriTrovati.push(libro);
+//   }
+// }
 
 if (libriTrovati.length == 1) {
   console.log(
